@@ -2,6 +2,9 @@
 
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="CompressorV4\Labels">
+      <UniqueIdentifier>{44A91219-CE67-D8F8-8FC5-63ECE8CD3429}</UniqueIdentifier>
+    </Filter>
     <Filter Include="CompressorV4\SlidersDials">
       <UniqueIdentifier>{C8D124E6-8498-E9A2-89DC-C06CE94984FB}</UniqueIdentifier>
     </Filter>
@@ -604,6 +607,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\Labels\LabelProperties.cpp">
+      <Filter>CompressorV4\Labels</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\SlidersDials\SliderDials.cpp">
       <Filter>CompressorV4\SlidersDials</Filter>
     </ClCompile>
