@@ -2,6 +2,9 @@
 
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="CompressorV4\Source\LevelMeter">
+      <UniqueIdentifier>{1CC73AE8-9DEC-FDE7-0006-25EF62A92E6F}</UniqueIdentifier>
+    </Filter>
     <Filter Include="CompressorV4\Source\Parameters">
       <UniqueIdentifier>{E99DCD73-AC0E-DE16-CE5C-00DD1208F551}</UniqueIdentifier>
     </Filter>
@@ -613,6 +616,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\LevelMeter\LevelMeterVerticalDiscrete.cpp">
+      <Filter>CompressorV4\Source\LevelMeter</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Parameters\Parameters.cpp">
       <Filter>CompressorV4\Source\Parameters</Filter>
     </ClCompile>
@@ -3069,6 +3075,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\LevelMeter\LevelMeterVerticalDiscrete.h">
+      <Filter>CompressorV4\Source\LevelMeter</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Parameters\Parameters.h">
       <Filter>CompressorV4\Source\Parameters</Filter>
     </ClInclude>
