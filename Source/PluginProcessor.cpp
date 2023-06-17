@@ -138,6 +138,7 @@ void CompressorV4AudioProcessor::updateParameters()
     m_compressorModule.setAttack(m_treeState.getRawParameterValue(m_attackID)->load());
     m_compressorModule.setRelease(m_treeState.getRawParameterValue(m_releaseID)->load());
     m_outputModule.setGainDecibels(m_treeState.getRawParameterValue(m_outputID)->load());
+    m_drywetMix.setValue(m_treeState.getRawParameterValue(m_wetdryID)->load());
 
 }
 
@@ -351,10 +352,40 @@ void CompressorV4AudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, 
     m_compressorModule.process(juce::dsp::ProcessContextReplacing<float>(block));
     m_outputModule.process(juce::dsp::ProcessContextReplacing<float>(block));   
 
+    for (int channel = 0; channel < getNumInputChannels(); ++channel)
+    {
+        float* channelData = buffer.getWritePointer(channel);
+        const float* inputData = buffer.getReadPointer(channel);
 
-    // Apply wet/dry mix
-    const float wetLevel = m_wetDryMixValue;  // Adjust this value to control the wet level (0.0 to 1.0)
-    const float dryLevel = 1.0f - m_wetDryMixValue;
+        for (int i = 0; i < buffer.getNumSamples(); ++i)
+            channelData[i] = (inputData[i] * (1.0f - m_drywetMix) + convolvedData[i] * m_drywetMix);
+        channelData[i] = (inputData[i] * (1 - m_drywetMix->get())) + (wetSignal * (0 + m_drywetMix->get()));
+    }
+
+    for (int channel = 0; channel < totalNumInputChannels; ++channel)
+    {
+        auto* channelData = buffer.getWritePointer(channel);
+
+        for (int sample = 0; sample < getTotalNumInputChannels(); ++sample)
+        {
+
+            drySignal = channelData[sample];
+            wetSignal = drySignal * gainReduction;
+
+            if (m_drywetMix->get() == 0)
+            {
+                channelData[sample] = drySignal;
+            }
+            else if (m_drywetMix->get() == 1)
+            {
+                channelData[sample] = wetSignal;
+            }
+            else
+            {
+                channelData[sample] = (drySignal * (1 - m_drywetMix->get())) + (wetSignal * (0 + m_drywetMix->get()));
+            }
+        }
+    }
 
 
 }
