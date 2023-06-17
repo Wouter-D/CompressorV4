@@ -3075,6 +3075,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\LevelMeter\Fifo.h">
+      <Filter>CompressorV4\Source\LevelMeter</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\LevelMeter\LevelMeterVerticalDiscrete.h">
       <Filter>CompressorV4\Source\LevelMeter</Filter>
     </ClInclude>
