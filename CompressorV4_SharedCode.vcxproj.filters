@@ -616,7 +616,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\LevelMeter\LevelMeterVerticalDiscrete.cpp">
+    <ClCompile Include="..\..\Source\LevelMeter\LevelMeter.cpp">
       <Filter>CompressorV4\Source\LevelMeter</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Parameters\Parameters.cpp">
@@ -3078,7 +3078,7 @@
     <ClInclude Include="..\..\Source\LevelMeter\Fifo.h">
       <Filter>CompressorV4\Source\LevelMeter</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\LevelMeter\LevelMeterVerticalDiscrete.h">
+    <ClInclude Include="..\..\Source\LevelMeter\LevelMeter.h">
       <Filter>CompressorV4\Source\LevelMeter</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Parameters\Parameters.h">
